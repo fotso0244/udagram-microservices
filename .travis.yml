@@ -10,7 +10,7 @@ install:
 
 # Scripts to be run such as tests
 before_script:
-  - docker image prune --all
+  - docker image prune --all --force
 
 script:
   - docker build -t udagram-api-feed ./udagram-api-feed
