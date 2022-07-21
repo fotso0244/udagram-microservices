@@ -12,7 +12,7 @@ install:
 before_script:
   - docker image prune --all
 
-script
+script:
   - docker build -t udagram-api-feed ./udagram-api-feed
   - docker build -t udagram-api-feed ./udagram-api-user
   - docker build -t udagram-api-feed ./udagram-frontend
