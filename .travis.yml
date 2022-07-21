@@ -12,9 +12,19 @@ install:
 before_script:
   - echo "no tests"
 
-script:
-  - docker-compose -f docker-compose-build.yaml build --parallel
+script
+  - docker build -t udagram-api-feed ./udagram-api-feed
+  - docker build -t udagram-api-feed ./udagram-api-user
+  - docker build -t udagram-api-feed ./udagram-frontend
+  - docker build -t udagram-api-feed ./udagram-reverseproxy
+  - docker tag udagram-api-feed fotso0244/udagram-api-feed:v1
+  - docker tag udagram-api-feed fotso0244/udagram-api-user:v1
+  - docker tag udagram-api-feed fotso0244/udagram-frontend:v1
+  - docker tag udagram-api-feed fotso0244/udagram-reverseproxy:v1
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker-compose push
+  - docker push fotso0244/udagram-api-feed:v1
+  - docker push fotso0244/udagram-api-user:v1
+  - docker push fotso0244/udagram-frontend:v1
+  - docker push fotso0244/udagram-reverseproxy:v1
