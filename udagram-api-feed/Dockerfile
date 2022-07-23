@@ -8,6 +8,5 @@ RUN npm ci
 # Bundle app source
 COPY . .
 EXPOSE 8080
-CMD [ "source", "set_env.sh" ]
 CMD [ "npm", "run", "build" ]
 CMD [ "npm", "run", "prod" ]

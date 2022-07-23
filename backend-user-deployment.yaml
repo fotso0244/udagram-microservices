@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-backend-user
+  labels:
+    app: udagram-backend-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-backend-user
+  template:
+    metadata:
+      labels:
+        app: udagram-backend-user
+    spec:
+      containers:
+      - name: udagram-backend-user
+        image: fotso0244/udagram-api-user:v1
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
