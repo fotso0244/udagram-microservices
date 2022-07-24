@@ -17,16 +17,20 @@ spec:
       containers:
       - name: udagram-backend-feed
         image: fotso0244/udagram-api-feed:v2
+        envFrom:
+        - configMapRef:
+            name: env-configmap
+        - secretRef:
+            name: postgre
         resources:
           requests:
-            memory: "500Mi"
+            memory: "1Gi"
           limits:
-            memory: "1000Mi"
+            memory: "2Gi"
         ports:
         - containerPort: 8080
         livenessProbe:
-          httpGet:
-            path: /health
+          tcpSocket:
             port: 8080
-          initialDelaySeconds: 3
-          periodSeconds: 3
+          initialDelaySeconds: 300
+          periodSeconds: 10

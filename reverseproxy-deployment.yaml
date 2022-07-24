@@ -17,11 +17,20 @@ spec:
       containers:
       - name: udagram-reverseproxy
         image: fotso0244/udagram-reverseproxy:v2
+        envFrom:
+        - configMapRef:
+            name: env-configmap
+        - secretRef:
+            name: postgre
+        resources:
+          requests:
+            memory: "1Gi"
+          limits:
+            memory: "2Gi"
         ports:
         - containerPort: 8080
         livenessProbe:
-          httpGet:
-            path: /health
+          tcpSocket:
             port: 8080
-          initialDelaySeconds: 3
-          periodSeconds: 3
+          initialDelaySeconds: 300
+          periodSeconds: 10
