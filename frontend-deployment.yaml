@@ -16,12 +16,16 @@ spec:
     spec:
       containers:
       - name: udagram-frontend
-        image: fotso0244/udagram-frontend:v3
+        image: fotso0244/udagram-frontend:v4
+        envFrom:
+        - configMapRef:
+            name: env-configmap
+        - secretRef:
+            name: postgre
+        resources:
+          requests:
+            memory: "1Gi"
+          limits:
+            memory: "2Gi"
         ports:
         - containerPort: 8100
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8100
-          initialDelaySeconds: 3
-          periodSeconds: 3
