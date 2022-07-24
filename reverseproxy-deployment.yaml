@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: udagram-reverseproxy
-        image: fotso0244/udagram-reverseproxy:v2
+        image: fotso0244/udagram-reverseproxy:v3
         envFrom:
         - configMapRef:
             name: env-configmap
