@@ -16,14 +16,12 @@ spec:
     spec:
       containers:
       - name: udagram-backend-feed
-        image: fotso0244/udagram-api-feed:v1
+        image: fotso0244/udagram-api-feed:v2
         resources:
           requests:
             memory: "500Mi"
           limits:
             memory: "1000Mi"
-        command: ["stress"]
-        args: ["--vm", "1", "--vm-bytes", "600M", "--vm-hang", "1"]
         ports:
         - containerPort: 8080
         livenessProbe:
