@@ -1,0 +1,124 @@
+Name:              kubernetes
+Namespace:         default
+Labels:            component=apiserver
+                   provider=kubernetes
+Annotations:       <none>
+Selector:          <none>
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.0.1
+IPs:               10.100.0.1
+Port:              https  443/TCP
+TargetPort:        443/TCP
+Endpoints:         172.31.15.92:443,172.31.91.77:443
+Session Affinity:  None
+Events:            <none>
+
+
+Name:                     publicfrontend
+Namespace:                default
+Labels:                   app=udagram-frontend
+Annotations:              <none>
+Selector:                 app=udagram-frontend
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.126.36
+IPs:                      10.100.126.36
+LoadBalancer Ingress:     a3422534d2f554b1a97cad1c8679ece1-1771053666.us-east-1.elb.amazonaws.com
+Port:                     <unset>  80/TCP
+TargetPort:               8100/TCP
+NodePort:                 <unset>  31005/TCP
+Endpoints:                172.31.2.139:8100
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+
+Name:                     reverseproxyfrontend
+Namespace:                default
+Labels:                   app=udagram-reverseproxy
+Annotations:              <none>
+Selector:                 app=udagram-reverseproxy
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.249.83
+IPs:                      10.100.249.83
+LoadBalancer Ingress:     acfecfae1a4954457b1cb48e8e4da394-754137164.us-east-1.elb.amazonaws.com
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  30017/TCP
+Endpoints:                172.31.13.70:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+
+Name:              udagram-backend-feed-svc
+Namespace:         default
+Labels:            app=udagram-backend-feed
+Annotations:       <none>
+Selector:          app=udagram-backend-feed
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.52.209
+IPs:               10.100.52.209
+Port:              <unset>  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         172.31.13.125:8080
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              udagram-backend-user-svc
+Namespace:         default
+Labels:            app=udagram-backend-user
+Annotations:       <none>
+Selector:          app=udagram-backend-user
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.182.197
+IPs:               10.100.182.197
+Port:              <unset>  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         172.31.14.126:8080
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              udagram-frontend-svc
+Namespace:         default
+Labels:            app=udagram-frontend
+Annotations:       <none>
+Selector:          app=udagram-frontend
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.253.100
+IPs:               10.100.253.100
+Port:              <unset>  8100/TCP
+TargetPort:        8100/TCP
+Endpoints:         172.31.2.139:8100
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              udagram-reverseproxy-svc
+Namespace:         default
+Labels:            app=udagram-reverseproxy
+Annotations:       <none>
+Selector:          app=udagram-reverseproxy
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.19.196
+IPs:               10.100.19.196
+Port:              <unset>  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         172.31.13.70:8080
+Session Affinity:  None
+Events:            <none>
