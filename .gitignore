@@ -3,8 +3,6 @@ set-db.env
 username.txt
 password.txt
 set.env
-env-configmap.yaml
-env-secret.yaml
 docker-configure-build.yaml
 docker-configure.yaml
 eks-cluster-role-trust-policy.json

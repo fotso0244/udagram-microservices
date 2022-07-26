@@ -1,0 +1,13 @@
+{
+  "Id": "Policy1658874070018",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1658874063908",
+      "Action": "s3:*",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::my-653834300880-udagram-micro",
+      "Principal": "*"
+    }
+  ]
+}

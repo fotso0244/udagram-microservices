@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: udagram-frontend
-        image: fotso0244/udagram-frontend:v4
+        image: fotso0244/udagram-frontend:v5
         envFrom:
         - configMapRef:
             name: env-configmap

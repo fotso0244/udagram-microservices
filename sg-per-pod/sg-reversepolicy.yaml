@@ -1,0 +1,11 @@
+apiVersion: vpcresources.k8s.aws/v1beta1
+kind: SecurityGroupPolicy
+metadata:
+  name: frontend-access-reverseproxy
+spec:
+  podSelector:
+    matchLabels:
+      app: udagram-reverseproxy
+  securityGroups:
+    groupIds:
+      - sg-018c1cbf14d4818a7
