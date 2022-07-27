@@ -6,7 +6,6 @@ import * as AWS from '../../../../aws';
 import * as c from '../../../../config/config';
 
 const router: Router = Router();
-var cors = require('cors');
 
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
   if (!req.headers || !req.headers.authorization) {
@@ -47,7 +46,7 @@ router.get('/:id',
     });
 
 // Get a signed url to put a new item in the bucket
-router.get('/signed-url/:fileName', cors(),
+router.get('/signed-url/:fileName',
     requireAuth,
     async (req: Request, res: Response) => {
       const {fileName} = req.params;
