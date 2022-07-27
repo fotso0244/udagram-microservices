@@ -11,7 +11,7 @@ IP:                10.100.0.1
 IPs:               10.100.0.1
 Port:              https  443/TCP
 TargetPort:        443/TCP
-Endpoints:         172.31.15.92:443,172.31.91.77:443
+Endpoints:         172.31.12.47:443,172.31.66.71:443
 Session Affinity:  None
 Events:            <none>
 
@@ -24,19 +24,23 @@ Selector:                 app=udagram-frontend
 Type:                     LoadBalancer
 IP Family Policy:         SingleStack
 IP Families:              IPv4
-IP:                       10.100.126.36
-IPs:                      10.100.126.36
-LoadBalancer Ingress:     a3422534d2f554b1a97cad1c8679ece1-1771053666.us-east-1.elb.amazonaws.com
+IP:                       10.100.208.25
+IPs:                      10.100.208.25
+LoadBalancer Ingress:     aec09658afbc4425eb2a2720083372bd-1436149153.us-east-1.elb.amazonaws.com
 Port:                     <unset>  80/TCP
 TargetPort:               8100/TCP
-NodePort:                 <unset>  31005/TCP
-Endpoints:                172.31.2.139:8100
+NodePort:                 <unset>  32009/TCP
+Endpoints:                172.31.72.42:8100
 Session Affinity:         None
 External Traffic Policy:  Cluster
-Events:                   <none>
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  32m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   32m   service-controller  Ensured load balancer
 
 
-Name:                     reverseproxyfrontend
+Name:                     publicreverseproxy
 Namespace:                default
 Labels:                   app=udagram-reverseproxy
 Annotations:              <none>
@@ -44,13 +48,13 @@ Selector:                 app=udagram-reverseproxy
 Type:                     LoadBalancer
 IP Family Policy:         SingleStack
 IP Families:              IPv4
-IP:                       10.100.249.83
-IPs:                      10.100.249.83
-LoadBalancer Ingress:     acfecfae1a4954457b1cb48e8e4da394-754137164.us-east-1.elb.amazonaws.com
+IP:                       10.100.37.170
+IPs:                      10.100.37.170
+LoadBalancer Ingress:     a1ea4d8d75a3841238470ec4109dc9c3-303277111.us-east-1.elb.amazonaws.com
 Port:                     <unset>  8080/TCP
 TargetPort:               8080/TCP
-NodePort:                 <unset>  30017/TCP
-Endpoints:                172.31.13.70:8080
+NodePort:                 <unset>  31662/TCP
+Endpoints:                172.31.14.39:8080
 Session Affinity:         None
 External Traffic Policy:  Cluster
 Events:                   <none>
@@ -64,11 +68,11 @@ Selector:          app=udagram-backend-feed
 Type:              ClusterIP
 IP Family Policy:  SingleStack
 IP Families:       IPv4
-IP:                10.100.52.209
-IPs:               10.100.52.209
+IP:                10.100.13.209
+IPs:               10.100.13.209
 Port:              <unset>  8080/TCP
 TargetPort:        8080/TCP
-Endpoints:         172.31.13.125:8080
+Endpoints:         172.31.4.75:8080
 Session Affinity:  None
 Events:            <none>
 
@@ -81,11 +85,11 @@ Selector:          app=udagram-backend-user
 Type:              ClusterIP
 IP Family Policy:  SingleStack
 IP Families:       IPv4
-IP:                10.100.182.197
-IPs:               10.100.182.197
+IP:                10.100.136.60
+IPs:               10.100.136.60
 Port:              <unset>  8080/TCP
 TargetPort:        8080/TCP
-Endpoints:         172.31.14.126:8080
+Endpoints:         172.31.3.241:8080,172.31.3.6:8080,172.31.71.167:8080
 Session Affinity:  None
 Events:            <none>
 
@@ -98,11 +102,11 @@ Selector:          app=udagram-frontend
 Type:              ClusterIP
 IP Family Policy:  SingleStack
 IP Families:       IPv4
-IP:                10.100.253.100
-IPs:               10.100.253.100
+IP:                10.100.179.239
+IPs:               10.100.179.239
 Port:              <unset>  8100/TCP
 TargetPort:        8100/TCP
-Endpoints:         172.31.2.139:8100
+Endpoints:         172.31.72.42:8100
 Session Affinity:  None
 Events:            <none>
 
@@ -115,10 +119,10 @@ Selector:          app=udagram-reverseproxy
 Type:              ClusterIP
 IP Family Policy:  SingleStack
 IP Families:       IPv4
-IP:                10.100.19.196
-IPs:               10.100.19.196
+IP:                10.100.79.50
+IPs:               10.100.79.50
 Port:              <unset>  8080/TCP
 TargetPort:        8080/TCP
-Endpoints:         172.31.13.70:8080
+Endpoints:         172.31.14.39:8080
 Session Affinity:  None
 Events:            <none>
