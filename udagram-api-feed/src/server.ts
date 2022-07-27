@@ -31,7 +31,7 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
     ],
     methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
     preflightContinue: true,
-    origin: '*',
+    origin: 'http://aec09658afbc4425eb2a2720083372bd-1436149153.us-east-1.elb.amazonaws.com'
   }));
 
   app.use('/api/v0/', IndexRouter);
